@@ -2,6 +2,7 @@
 using EFSandBoxAPI.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Configuration;
 
 
 namespace EFSandBoxAPI.Repositories
@@ -16,9 +17,11 @@ namespace EFSandBoxAPI.Repositories
 
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
 
-        public UnitOfWork(DbContext dbContext)
+        public UnitOfWork(IConfiguration config)
         {
-            this.dbContext = dbContext;
+            string connectionString = config.GetConnectionString("AVConnectionString");
+            var options = new DbContextOptionsBuilder<AdventureWorks2019Context>().UseSqlServer(connectionString).Options;
+            this.dbContext = new AdventureWorks2019Context(options);
         }
 
         public IUnitOfWork UseTransaction()
