@@ -1,15 +1,15 @@
 # Generic Repository with Unit of Work & Pagination
 
 ## Features
-- Generic repository
--- possibility of using a where predicate
--- possibility of using multiple includes
-- Unit of Work
--- easy to use transactions
--- easy to use many repositories
-- Pagination 
--- Custom Filter
--- Filter by multiple columns
+- ### Generic repository
+- possibility of using a where predicate
+- possibility of using multiple includes
+- ### Unit of Work
+- easy to use transactions
+- easy to use many repositories
+- ### Pagination 
+- Custom Filter
+- Filter by multiple columns
 
 ## Use examples
 ```cs
